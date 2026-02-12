@@ -1,6 +1,8 @@
 # ID: 02
 # Company: Apple
-# Question
+# Question: Find how many events happened on MacBook-Pro per company in Argentina from users that do not speak Spanish
+# Output: Country, Language, Number of Speakers
+# Order: Based on Country in Ascending Order
 
 playbook_events
 user_id:          int64
