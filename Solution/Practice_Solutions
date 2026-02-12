@@ -1,0 +1,27 @@
+## ID: 01
+## Company: Instacart
+## Identify customers who did not place an order between 2019-02-01 and 2019-03-01
+
+Solution: 
+Import your libraries
+import pandas as pd
+
+Start writing code
+df = pd.merge(customers, orders, how='left', left_on='id', right_on='cust_id')
+
+df_exclude = (
+df.loc[df['order_date'].between('2019-02-01', '2019-03-01'), 
+['first_name']]
+.drop_duplicates()
+)
+    
+df_exclude
+
+df_include = (
+df.loc[~df['first_name'].isin(df_exclude['first_name']),
+['first_name']]
+.drop_duplicates()
+)
+
+## Remember: .isin(), ~  
+## Strategy: When checking who isn't in something, find who isn't in it - use isin() and ~ to exclude anyone that had the condition
