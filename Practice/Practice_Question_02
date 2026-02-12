@@ -1,0 +1,22 @@
+# ID: 02
+# Company: Apple
+# Question
+
+playbook_events
+user_id:          int64
+occurred_at:d     atetime64[ns]
+event_type:       object
+event_name:       object
+location:         object
+device:           object
+
+playbook_users
+user_id:        int64
+created_at:     datetime64[ns]
+company_id:     int64
+language:       object
+activated_at:   datetime64[ns]
+state:          object
+
+--
+# Write Code Here:
