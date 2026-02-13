@@ -1,0 +1,23 @@
+# ID: 10140
+# Company: Apple
+# Question: Find how many events happened on MacBook-Pro per company in Argentina from users that do not speak Spanish
+# Output: Country, Language, Number of Speakers
+# Order: Based on Country in Ascending Order
+
+import pandas as pd
+
+df_events = (
+  playbook_events.loc[(playbook_events['device'] == 'macbook pro') &
+                      (playbook_events['location'] == 'Argentina'), ]
+)
+
+merged = pd.merge(df_events, playbook_users, how='inner', on='user_id')
+
+result = (
+  merged.loc[~(merged['user_id'].isin(merged.loc[merged['language'] == 'spanish', 'user_id'])),
+  ['company_id', 'language', 'occurred_at']]
+)
+
+result = result.groupby(['company_id', 'language']).size().reset_index(name='n_users')
+
+# This problem teaches that you need to also search for users that speak both Spanish and another language
