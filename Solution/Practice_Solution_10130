@@ -29,7 +29,3 @@ df = df.sort_values('total_inspections', ascending = False)
 
 
 
-
-
-
-df = df.sort_values('total_inspections', ascending = False)
