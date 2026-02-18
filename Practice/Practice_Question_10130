@@ -1,0 +1,28 @@
+# ID: 10130
+# Company: City of San Francisco
+# Question: Find the number of inspections for each risk category by inspection type
+
+Find the number of inspections that resulted in each risk category per each inspection type.
+Consider the records with no risk category value as belonging to a separate category.
+Output the result along with the inspection type and total number of inspections per type.
+The output should be pivoted, meaning that each risk category + total number should be a separate column.
+Order the result based on number of inpsections per type in descending order.
+
+Table
+business_id:              int64
+business_name:            object
+business_address:         object
+business_city:            object
+business_state:           object
+business_postal_code:     float64
+business_latitude:        float64
+business_longitude:       float64
+business_location:        object
+business_phone_number:    float64
+inspection_id:            object
+inspection_date:          datetime64[ns]
+inspection_score:         float64
+inspection_type:          object
+violation_id:             object
+violation_description:    object
+risk_category:            object
