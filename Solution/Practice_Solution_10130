@@ -1,0 +1,35 @@
+# ID: 10130
+# Company: City of San Francisco
+# Question: Find the number of inspections for each risk category by inspection type
+
+Find the number of inspections that resulted in each risk category per each inspection type.
+Consider the records with no risk category value as belonging to a separate category.
+Output the result along with the inspection type and total number of inspections per type.
+The output should be pivoted, meaning that each risk category + total number should be a separate column.
+Order the result based on number of inpsections per type in descending order.
+
+--
+import pandas as pd
+
+sf_restaurant_health_violations.loc[sf_restaurant_health_violations['risk_category'].isna(), 'risk_category'] = 'no_risk_results'
+
+df = (
+    sf_restaurant_health_violations.groupby(['inspection_type', 'risk_category'])['business_id']
+    .size()
+    .reset_index(name='n_inspections')
+    .pivot(index='inspection_type', columns='risk_category', values='n_inspections')
+    .fillna(0)
+    .reset_index()
+    )
+    
+df = df.loc[:, ['inspection_type', 'no_risk_results', 'Low Risk', 'Moderate Risk', 'High Risk']]
+df['total_inspections'] = df[['no_risk_results', 'Low Risk', 'Moderate Risk', 'High Risk']].sum(axis=1)
+
+df = df.sort_values('total_inspections', ascending = False)
+
+
+
+
+
+
+df = df.sort_values('total_inspections', ascending = False)
