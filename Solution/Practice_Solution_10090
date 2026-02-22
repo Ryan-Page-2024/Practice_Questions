@@ -1,0 +1,38 @@
+# ID: 10090
+# Company: Google
+# Question: Find the percentage of shipable orders. Consider an order is shipable if the customer's address is known.
+
+import pandas as pd
+
+-- How I Solved:
+# Identify the Total Number of Orders
+total_orders = len(orders)
+
+# Identify Shippable Orders
+df = pd.merge(orders, customers, left_on='cust_id', right_on='id', how='inner')
+df = df.loc[df['address'].notna(), ]
+shippable_orders = len(df)
+
+# Compute Result
+result = (shippable_orders / total_orders) * 100
+
+-- Alternative Lambda Method (Think of Lambda Like Case When)
+merged_df = pd.merge(orders, customers, left_on='cust_id', right_on='id', how='inner')
+merged_df['is_shippable'] = merged_df['address'].apply(
+                                                        lambda x: 1 if pd.notna(x) and str(x).strip != '' else 0
+                                                      )
+
+# Identify Total Orders
+total_orders = len(orders)
+
+# Identify Shippable Orders
+shippable_orders = merged_df['is_shippable'].sum()
+
+# Identify Percent Shippable
+result = (shippable_orders / total_orders) * 100
+
+
+
+
+
+
