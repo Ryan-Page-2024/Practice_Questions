@@ -1,0 +1,17 @@
+# ID: 10088
+# Company: Meta
+# Question: Find the number of posts which were reacted to with a like and include basketball keyword in it.
+
+facebook_reactions
+poster:          int64
+friend:          int64
+reaction:        object
+date_day:        int64
+post_id:         int64
+
+facebook_posts
+post_id:         int64
+poster:          int64
+post_text:       object
+post_keywords:   object
+post_date:       datetime64[ns]
