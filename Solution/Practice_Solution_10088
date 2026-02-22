@@ -1,0 +1,10 @@
+# ID: 10088
+# Company: Meta
+# Question: Find the number of posts which were reacted to with a like and include basketball keyword in it.
+
+import pandas as pd
+
+df_r = facebook_reactions.loc[facebook_reactions['reaction'] == 'like', 'post_id'].drop_duplicates()
+df_p = facebook_posts.loc[facebook_posts['post_keywords'].apply(lambda keywords: 'basketball' in keywords, 'post_id'].drop_duplicates()
+
+result = len(pd.merge(df_r, df_p, on='post_id', how='inner'))
