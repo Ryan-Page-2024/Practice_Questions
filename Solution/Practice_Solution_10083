@@ -1,0 +1,9 @@
+# ID: 10083
+# Company: Lyft
+# Question: Find contract starting dates of the top 5 most paid Lyft drivers. Consider only drivers who are still working with Lyft.
+
+# Solution:
+import pandas as pd
+df = lyft_drivers.loc[lyft_drivers['end_date'].isna(), ]
+df['rnk'] = df['yearly_salary'].rank(method='dense', ascending=False)
+df = df.loc[df['rnk'] <= 5, ].sort_values('rnk')['start_date']
