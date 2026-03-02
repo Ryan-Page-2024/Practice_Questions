@@ -1,0 +1,12 @@
+# ID: 9980
+# Company: City of San Francisco
+
+# Question:
+Find the employee who earned the lowest total payment with benefits from a list of employees who earned from a list of employees who earned more from other payments 
+compared to their base pay. Output first name of the employee, corresponding total payment with benefits.
+
+# Solution:
+df = sf_public_salaries.loc[sf_public_salaries['otherpay'] > sf_public_salaries['basepay'], ]
+df = df[df['totalpaybenefits'] == df['totalpaybenefits'].min()][['employeename', 'totalpaybenefits']]
+df['employeename'] = df['employeename'].str.split(' ').str[0]
+df
