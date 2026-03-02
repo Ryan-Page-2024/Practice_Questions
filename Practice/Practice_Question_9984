@@ -1,0 +1,21 @@
+# ID: 9984
+# Company: City of San Francisco
+
+# Question: 
+Find the Ratio and Difference between Highest and Lowest TotalPay for each job title. Another condition is to remove rows total pay equal to zero from the calculation. 
+Output the job title along with difference, ratio, highest and lowest total pay. Sort records based on ratio.
+
+sf_public_salaries
+id:                  int64
+employeename:        object
+jobtitle:            object
+basepay:             float64
+overtimepay:         float64
+otherpay:            float64
+benefits:            float64
+totalpay:            float64
+totalpaybenefits:    float64
+year:                int64
+notes:               datetime64[ns]
+agency:              object
+status:              object
