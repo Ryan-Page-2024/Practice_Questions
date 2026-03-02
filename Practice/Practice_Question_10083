@@ -1,0 +1,10 @@
+# ID: 10083
+# Company: Lyft
+# Question: Find contract starting dates of the top 5 most paid Lyft drivers. Consider only drivers who are still working with Lyft.
+
+# Table:
+lyft_drivers
+index          int64
+start_date     datetime64[ns]
+end_date       datetime64[ns]
+yearly_salary  int64
