@@ -1,0 +1,16 @@
+# ID: 9984
+# Company: City of San Francisco
+
+# Question: 
+Find the Ratio and Difference between Highest and Lowest TotalPay for each job title. Another condition is to remove rows total pay equal to zero from the calculation. 
+Output the job title along with difference, ratio, highest and lowest total pay. Sort records based on ratio.
+
+# Solution
+import pandas as pd
+
+df = sf_public_salaries
+df = df.loc[~(df['totalpay'] == 0), ['jobtitle', 'totalpay']].sort_values('totalpay', ascending=False)
+df = df.groupby('jobtitle')['totalpay'].agg(min_pay = 'min', max_pay = 'max').reset_index()
+df['difference'] = df['max_pay'] - df['min_pay']
+df['ratio'] = df['max_pay'] / df['min_pay']
+df.sort_values('ratio', ascending=False)
