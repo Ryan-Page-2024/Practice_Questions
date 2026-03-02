@@ -1,0 +1,21 @@
+# ID: 9980
+# Company: City of San Francisco
+
+# Question:
+Find the employee who earned the lowest total payment with benefits from a list of employees who earned from a list of employees who earned more from other payments 
+compared to their base pay. Output first name of the employee, corresponding total payment with benefits.
+
+Table: sf_public_salaries
+id:                 int64
+employeename:       object
+jobtitle:           object
+basepay:            float64
+overtimepay:        float64
+otherpay:           float64
+benefits:           float64
+totalpay:           float64
+totalpaybenefits:   float64
+year:               int64
+notes:              datetime64[ns]
+agency:             object
+status:             object
