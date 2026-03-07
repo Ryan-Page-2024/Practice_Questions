@@ -1,0 +1,10 @@
+# ID: 10074
+# Company: Airbnb
+# Question: Find the average age of guests reviewed by each host. Output the user along with the average age.
+
+# Table: airbnb_reviews
+from_user:      int64
+to_user:        int64
+from_type:      object
+to_type:        object
+review_score:   int64
