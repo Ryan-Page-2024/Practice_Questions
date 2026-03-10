@@ -1,0 +1,18 @@
+# ID: 10073
+# Company: Airbnb
+# Question: For each guest reviewer, find nationality of the reviewer's favorite host based on the guest's highest review score given to a host.
+# Output: User ID, Host Nationality - Remove Duplicates
+
+# Tables:
+airbnb_reviews
+from_user:              int64
+to_user:                int64
+from_type:              object
+to_type:                object
+review_score:           int64
+
+airbnb_hosts            
+host_id:                int64
+nationality:            object
+gender:                 object
+age:                    int64
