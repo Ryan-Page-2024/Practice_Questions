@@ -1,0 +1,19 @@
+# ID: 10049
+# Company: Yelp
+# Question: Calculate number of reviews for every business category. Output the category along with the total number of reviews. Order by total reviews in descending order.
+
+# Import your libraries
+import pandas as pd
+
+# Start writing code
+yelp_business['new_categories'] = yelp_business['categories'].str.split(';')
+
+# Transform ['Auto Detailing', 'Automotive'] -> Separate Rows for Each 
+yelp_business = yelp_business.apply(lambda x: x.explode()).reset_index()
+
+df = (
+    yelp_business.groupby('new_categories')['review_count']
+    .sum()
+    .reset_index(name='n_reviews')
+    .sort_values('n_reviews', ascending=False)
+    )
