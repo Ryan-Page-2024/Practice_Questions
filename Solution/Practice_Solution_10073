@@ -1,0 +1,19 @@
+# ID: 10073
+# Company: Airbnb
+# Question: For each guest reviewer, find nationality of the reviewer's favorite host based on the guest's highest review score given to a host.
+# Output: User ID, Host Nationality - Remove Duplicates
+
+# Import your libraries
+import pandas as pd
+
+# Isolate for guests their max score host
+air_rev = airbnb_reviews.loc[airbnb_reviews['to_type'] == 'host', ]
+df = air_rev.groupby('from_user')['review_score'].max().reset_index(name='max_score')
+
+# Pull back in the to_user column
+df = pd.merge(df, air_rev, left_on=['from_user','max_score'], right_on=['from_user', 'review_score'], how='inner')
+df = df.loc[:, ['from_user', 'to_user', 'review_score']]
+
+# Pull in the nationality for the host using to_user
+df = pd.merge(df, airbnb_hosts, left_on='to_user', right_on='host_id')
+df = df.loc[:, ['from_user', 'nationality']].drop_duplicates()
