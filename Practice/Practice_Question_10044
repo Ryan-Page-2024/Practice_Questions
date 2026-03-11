@@ -1,0 +1,23 @@
+# ID: 10044
+# Company: Wine Magazine
+
+# Question: 
+Find the highest price in US country for each variety produced in English speaking regions, but not in Spanish speaking regions 
+Take into consideration varieties that have earned a minimum of 90 points for every country they're produced in.
+Output both the variety and the corresponding highest price.
+
+US is the only English speaking region in the dataset, and Spain, Argentina are the only Spanish speaking regions in the dataset
+Assume the same variety might be listed under several countries so you'll need to remove varieties that show up in both the US and in Spanish speaking countries.
+
+winemag_p1
+id:                      int64
+country:                 object
+description:             object
+designation:             object
+points:                  int64
+price:                   float64
+province:                object
+region_1:                object
+region_2:                object
+variety:                 object
+winery:                  object
