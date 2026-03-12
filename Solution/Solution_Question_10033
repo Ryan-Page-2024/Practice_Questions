@@ -1,0 +1,19 @@
+# ID: 10033
+# Company: Wine Magazine
+
+# Question:
+You have a dataset containing information about wines, including their regions, varaties, and prices
+Some regions have two regions listed (region_1 and region_2), calculate the total cost of wine for each region
+Because there are two regions listed, you will have to create a unified region column 
+Make sure to remove any duplicate entries and exclude any records with missing prices or regions
+Result should include Region, Variety, and Total Price - Order from highest to lowest price
+
+# Import your libraries
+import pandas as pd
+
+# Start writing code
+df1 = winemag_p1[['region_1','price','variety']].rename(columns={'region_1':'region'})
+df2 = winemag_p1[['region_2','price','variety']].rename(columns={'region_2':'region'})
+df = pd.concat([df1, df2]).drop_duplicates()
+df = df[~(df['price'] == 0) & (df['region'].notna()) & (df['price'].notna())]
+df = df.groupby(['region','variety'])['price'].sum().reset_index(name='total').sort_values('total', ascending=False)
