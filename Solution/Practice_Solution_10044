@@ -1,0 +1,24 @@
+# ID: 10044
+# Company: Wine Magazine
+
+# Question: 
+Find the highest price in US country for each variety produced in English speaking regions, but not in Spanish speaking regions 
+Take into consideration varieties that have earned a minimum of 90 points for every country they're produced in.
+Output both the variety and the corresponding highest price.
+
+US is the only English speaking region in the dataset, and Spain, Argentina are the only Spanish speaking regions in the dataset
+Assume the same variety might be listed under several countries so you'll need to remove varieties that show up in both the US and in Spanish speaking countries.
+
+import pandas as pd
+
+# eliminate varieties that have less than 90 in any country
+df_low_rated = winemag_p1.loc[winemag_p1['points']<90, ['variety','points','price']]
+df_reduced = winemag_p1.loc[~(winemag_p1['variety'].isin(df_low_rated['variety'])), ]
+
+# identify wine produced in the united states and remove wine produced in Spanish speaking countries
+df_english = df_reduced.loc[df_reduced['country'] == 'US', ['variety','points','price']]
+df_spanish = winemag_p1.loc[(winemag_p1['country'].isin(['Spain', 'Argentina'])), ['variety']]
+df = df_english.loc[~(df_english['variety'].isin(df_spanish['variety'])), ['variety','price']]
+
+# identify the max price for these wine varieties
+df = df.groupby('variety')['price'].max().reset_index(name='max_price').sort_values('max_price')
