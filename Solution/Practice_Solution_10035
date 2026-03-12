@@ -1,0 +1,28 @@
+# ID: 10035
+# Company: Wine Magazine
+
+# Question: 
+Find the number of wines with and without designations per country.
+Output the country along with the total without designations, total with designations, and the final total of both.
+
+# Import your libraries
+import pandas as pd
+
+# Identify relevant columns to work with
+df = winemag_p2.loc[:, ['country','designation','id']]
+df['category'] = df['designation'].notna()
+
+# Define records with designation vs without designation
+df.loc[df['category'] == True, 'category'] = 'With Designation'
+df.loc[df['category'] == False, 'category'] = 'Without Designation'
+
+# Keep important columns only to perform calculation
+df = df.loc[:, ['country', 'category', 'id']]
+df = df.groupby(['country', 'category'])['id'].size().reset_index(name='n_wine')
+
+# Change the table so that it uses the designations as columns
+df = df.pivot(index='country', columns='category', values='n_wine').reset_index().fillna(0)
+
+# Compute total and sort records based on total
+df['Total'] = df['With Designation'] + df['Without Designation']
+df = df.sort_values('Total', ascending=False)
