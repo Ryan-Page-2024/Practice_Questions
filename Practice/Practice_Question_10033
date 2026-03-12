@@ -7,3 +7,16 @@ Some regions have two regions listed (region_1 and region_2), calculate the tota
 Because there are two regions listed, you will have to create a unified region column 
 Make sure to remove any duplicate entries and exclude any records with missing prices or regions
 Result should include Region, Variety, and Total Price - Order from highest to lowest price
+
+winemag_p1
+id:                int64
+country:           object
+description:       object
+designation:       object
+points:            int64
+price:             float64
+province:          object
+region_1:          object
+region_2:          object
+variety:           object
+winery:            object
