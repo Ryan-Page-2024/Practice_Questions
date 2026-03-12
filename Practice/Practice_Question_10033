@@ -1,0 +1,9 @@
+# ID: 10033
+# Company: Wine Magazine
+
+# Question:
+You have a dataset containing information about wines, including their regions, varaties, and prices
+Some regions have two regions listed (region_1 and region_2), calculate the total cost of wine for each region
+Because there are two regions listed, you will have to create a unified region column 
+Make sure to remove any duplicate entries and exclude any records with missing prices or regions
+Result should include Region, Variety, and Total Price - Order from highest to lowest price
