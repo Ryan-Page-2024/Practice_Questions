@@ -1,0 +1,23 @@
+# ID: 10035
+# Company: Wine Magazine
+
+# Question: 
+Find the number of wines with and without designations per country.
+Output the country along with the total without designations, total with designations, and the final total of both.
+
+# Table:
+winemag_p2
+id:                      int64
+country:                 object
+description:             object
+designation:             object
+points:                  int64
+price:                   float64
+province:                object
+region_1:                object
+region_2:                object
+taster_name:             object
+taster_twitter_handle:   object
+title:                   object
+variety:                 object
+winery:                  object
