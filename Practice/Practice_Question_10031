@@ -1,0 +1,17 @@
+# ID: 10031
+# Company: Wine Magazine
+# Question: Find the number of Bodegas outside of Spain that produce wines with blackberry taste - Group the count by country and region
+# Output the Country, Region, and number of Bodega - Order Records by the Number of Bodegas in Descending Order
+
+winemag_p1
+id:                  int64
+country:             object
+description:         object
+designation:         object
+points:              int64
+price:               float64
+province:            object
+region_1:            object
+region_2:            object
+variety:             object
+winery:              object
