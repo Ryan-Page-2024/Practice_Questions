@@ -1,0 +1,19 @@
+# ID: 10031
+# Company: Wine Magazine
+# Question: Find the number of Bodegas outside of Spain that produce wines with blackberry taste - Group the count by country and region
+# Output the Country, Region, and number of Bodega - Order Records by the Number of Bodegas in Descending Order
+
+# Import your libraries
+import pandas as pd
+
+df = winemag_p1.loc[
+    (winemag_p1['description'].str.contains('blackberry')) &
+    ~(winemag_p1['country'] == 'Spain') &
+    (winemag_p1['winery'].str.contains('Bodega')), 
+    ['country','region_1','winery']]
+    
+df = (
+    df.groupby(['country','region_1'])['winery']
+    .size()
+    .reset_index(name='n_winery')
+    .sort_values('n_winery', ascending=False))
