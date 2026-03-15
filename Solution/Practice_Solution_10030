@@ -1,0 +1,7 @@
+# ID: 10030
+# Company: Wine Magazine
+# Question: Find Total Revenue By Each Winery and Variety of Wine that has at least 90 points
+# Output: Winery, Variety, Total Revenue - Order by Winery Ascending, Total Revenue Descending
+
+df = winemag_p1.groupby(['winery','variety']).agg({'price':'sum','points':'min'}).reset_index()
+result = df.loc[df['points']>=90, ['winery','variety','price']].sort_values(['winery','price'], ascending=[True, False])
