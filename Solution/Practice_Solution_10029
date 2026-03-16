@@ -1,0 +1,8 @@
+# ID: 10029
+# Company: Wine Magazine
+# Question: Find the minimum, average, and maximum price of all wines per country. Assume all wines listed are unique.
+
+import pandas as pd
+
+df = pd.concat([winemag_p1, winemag_p2])
+df = df.groupby('country').agg({'price':['min','mean','max']}).reset_index()
