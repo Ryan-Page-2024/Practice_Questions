@@ -1,0 +1,13 @@
+# ID: 10012
+# Company: Uber
+
+# Question: 
+Find effectiveness of each advertising channel in the period from 2017 to 2018 (included). 
+The effectiveness is calculated as the ratio of total money spent to total customers aquired.
+
+# Table
+uber_advertising
+year:                      int64
+advertising_channel:       object
+money_spent:               int64
+customers_acquired:        int64
