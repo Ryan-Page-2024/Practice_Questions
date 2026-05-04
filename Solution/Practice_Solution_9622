@@ -7,6 +7,4 @@ Find the average number of bathrooms and bedrooms for each city’s property typ
 # Solution
 import pandas as pd
 df = airbnb_search_details.loc[:, ['city','property_type','bathrooms','bedrooms']]
-.agg({'bathrooms':'mean', 'bedrooms':'mean'})
-.rename(columns={'bathrooms':'avg_bath', 'bedrooms':'avg_bed'})
-.reset_index()
+df = df.groupby(['city','property_type']).agg({'bathrooms':'mean', 'bedrooms':'mean'}).reset_index()
