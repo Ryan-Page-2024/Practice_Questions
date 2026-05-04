@@ -1,0 +1,15 @@
+# ID: 2169
+# Company: Salesforce
+
+# Question:
+The data quality team is auditing employee records to assess the completeness of contact information. Calculate and return the ratio of employees who have a NULL phone number.
+
+# Table
+techcorp_workforce
+department:     text
+first_name:     text
+id:             bigint
+joining_date:   date
+last_name:      text
+phone_number:   text
+salary:         bigint
