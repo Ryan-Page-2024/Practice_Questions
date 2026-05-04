@@ -1,0 +1,16 @@
+# ID: 2169
+# Company: Salesforce
+
+# Table
+techcorp_workforce
+department:     text
+first_name:     text
+id:             bigint
+joining_date:   date
+last_name:      text
+phone_number:   text
+salary:         bigint
+
+# Solution
+SELECT SUM(CASE WHEN phone_number IS NULL THEN 1 ELSE 0 END) / COUNT(*)
+FROM techcorp_workforce
