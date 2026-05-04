@@ -1,0 +1,23 @@
+# ID: 9924
+# City of San Francisco
+
+# Question
+Find libraries from the 2016 circulation year that have no email address provided but have their notice preference set to email. In your solution, output their home library code.
+
+# Table
+library_usage
+patron_type_code:                  int64
+patron_type_definition:            object
+total_checkouts:                   int64
+total_renewals:                    int64
+age_range:                         object
+home_library_code:                 object
+home_library_definition:           object
+circulation_active_month:          object
+circulation_active_year:           float64
+notice_preference_code:            object
+notice_preference_definition:      object
+provided_email_address:            bool
+year_patron_registered:            int64
+outside_of_county:                 bool
+supervisor_district:               float64
