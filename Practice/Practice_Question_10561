@@ -1,0 +1,14 @@
+# ID: 10561
+# Company: Pinterest
+
+# Question
+Count the number of unique users per day who logged in from either a mobile device or web. Output the date and the corresponding number of users.
+
+# Tables
+mobile_logs
+user_id:      object
+log_date:     datetime
+
+web_logs
+user_id:      object
+log_date:     datetime
