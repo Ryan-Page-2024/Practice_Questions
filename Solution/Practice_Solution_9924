@@ -1,0 +1,11 @@
+# ID: 9924
+# Company: City of San Francisco
+
+# Question
+Find libraries from the 2016 circulation year that have no email address provided but have their notice preference set to email. In your solution, output their home library code.
+
+# Solution
+import pandas as pd
+
+df = library_usage
+df = df[(df['circulation_active_year'] == 2016) & (df['notice_preference_code'] == 'z') & (df['provided_email_address'] == False)][['home_library_code']].drop_duplicates()
