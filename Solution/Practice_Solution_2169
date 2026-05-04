@@ -12,5 +12,5 @@ phone_number:   text
 salary:         bigint
 
 # Solution
-SELECT SUM(CASE WHEN phone_number IS NULL THEN 1 ELSE 0 END) / COUNT(*)
-FROM techcorp_workforce
+  SELECT SUM(CASE WHEN phone_number IS NULL THEN 1 ELSE 0 END) / COUNT(*)
+  FROM techcorp_workforce
