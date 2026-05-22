@@ -1,0 +1,16 @@
+# ID: 9740
+
+# Question:
+Determine the change in the number of daily violations by calculating the difference between the count of current and previous violations by inspection date.
+Output the inspection date and the change in the number of daily violations. Order your results by the earliest inspection date first.
+
+# Answer:
+WITH starting_table AS (
+SELECT inspection_date, COUNT(violation_id) AS current_violations, LAG(COUNT(violation_id)) OVER(ORDER BY inspection_date DESC) AS previous_violations
+FROM sf_restaurant_health_violations
+GROUP BY inspection_date
+ORDER BY inspection_date
+)
+
+SELECT inspection_date, (current_violations - previous_violations) AS difference
+FROM starting_table;
