@@ -1,0 +1,25 @@
+# ID: 9740
+
+# Question: 
+Determine the change in the number of daily violations by calculating the difference between the count of current and previous violations by inspection date.
+Output the inspection date and the change in the number of daily violations. Order your results by the earliest inspection date first.
+
+# Table:
+sf_restaurant_health_violations
+business_address:                        text
+business_city:                           text
+business_id:                             bigint
+business_latitude:                       double
+business_location:                       text
+business_longitude:                      double
+business_name:                           text
+business_phone_number:                   double
+business_postal_code:                    double
+business_state:                          text
+inspection_date:                         date
+inspection_id:                           text
+inspection_score:                        double
+inspection_type:                         text
+risk_category:                           text
+violation_description:                   text
+violation_id:                            text
